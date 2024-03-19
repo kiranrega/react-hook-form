@@ -54,7 +54,7 @@ const CustomDownIcon = ({ color }: { color: string }) => (
 );
 
 const UserForm = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
   const [showUserDetails, setShowUserDetails] = useState(false);
   const methods = useForm<Inputs>({
     defaultValues: {
@@ -80,6 +80,7 @@ const UserForm = () => {
       await new Promise((resolve) => setTimeout(resolve, 3000)); // Simulate a 3-second delay
       setIsLoading(false);
       setShowUserDetails(true);
+      console.log(data);
     }
   };
 

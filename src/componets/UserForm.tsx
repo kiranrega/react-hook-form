@@ -24,6 +24,10 @@ import {
 } from "react-hook-form";
 import { FiChevronDown } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
+import FirstNameInput from "./inputfields/FirstName";
+import LastNameInput from "./inputfields/LastName";
+import EmailInput from "./inputfields/Email";
+import MobileNumberInput from "./inputfields/MobileNumber";
 
 const UserDetails = lazy(() => import("./Userdetails"));
 
@@ -105,124 +109,18 @@ const UserForm = () => {
             </Text>
             <HStack spacing="24px" mt={2}>
               <Box width={"100%"}>
-                <FormControl isInvalid={!!errors.firstname} height={"15vh"}>
-                  <FormLabel fontSize="1xl" fontWeight="bold" mb={2}>
-                    First Name
-                  </FormLabel>
-                  <Input
-                    className="input-element"
-                    fontWeight={"bold"}
-                    bg={"#D7D7D7"}
-                    placeholder="First Name"
-                    size={"md"}
-                    _placeholder={{ color: "white", fontWeight: "bold" }}
-                    variant="filled"
-                    {...register("firstname", {
-                      required: "First Name is required",
-                      minLength: {
-                        value: 3,
-                        message: "Min 3 characters required",
-                      },
-                      pattern: {
-                        value: /^[a-zA-Z\s]+$/,
-                        message:
-                          "First Name must contain only alphabets and spaces",
-                      },
-                    })}
-                  />
-                  <FormErrorMessage>
-                    {errors.firstname && errors.firstname.message}
-                  </FormErrorMessage>
-                </FormControl>
+                <FirstNameInput />
               </Box>
               <Box width={"100%"}>
-                <FormControl isInvalid={!!errors.lastname} height={"15vh"}>
-                  <FormLabel fontSize="1xl" fontWeight="bold" mb={2}>
-                    Last Name
-                  </FormLabel>
-                  <Input
-                    className="input-element"
-                    fontWeight={"bold"}
-                    bg={"#D7D7D7"}
-                    placeholder="Last Name"
-                    size={"md"}
-                    _placeholder={{ color: "white", fontWeight: "bold" }}
-                    variant="filled"
-                    {...register("lastname", {
-                      required: "Last Name is required",
-                      minLength: {
-                        value: 3,
-                        message: "Min 3 characters required",
-                      },
-                      pattern: {
-                        value: /^[A-Za-z]+$/,
-                        message: "Last Name must contain only alphabets",
-                      },
-                    })}
-                  />
-                  <FormErrorMessage>
-                    {errors.lastname && errors.lastname.message}
-                  </FormErrorMessage>
-                </FormControl>
+                <LastNameInput />
               </Box>
             </HStack>
             <HStack spacing="24px" mt={2}>
               <Box width={"100%"}>
-                <FormControl isInvalid={!!errors.email} height={"15vh"}>
-                  <FormLabel fontSize="1xl" fontWeight="bold" mb={2}>
-                    E-Mail
-                  </FormLabel>
-                  <Input
-                    className="input-element"
-                    fontWeight={"bold"}
-                    bg={"#D7D7D7"}
-                    placeholder="E-mail"
-                    size={"md"}
-                    _placeholder={{ color: "white", fontWeight: "bold" }}
-                    variant="filled"
-                    {...register("email", {
-                      required: "E-Mail is required",
-                      pattern: {
-                        value: /[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                        message: "Email format is incorrect",
-                      },
-                    })}
-                  />
-                  <FormErrorMessage>
-                    {errors.email && errors.email.message}
-                  </FormErrorMessage>
-                </FormControl>
+                <EmailInput />
               </Box>
               <Box width={"100%"}>
-                <FormControl isInvalid={!!errors.mobilenumber} height={"15vh"}>
-                  <FormLabel fontSize="1xl" fontWeight="bold" mb={2}>
-                    Mobile Number
-                  </FormLabel>
-                  <Input
-                    className="input-element"
-                    type="number"
-                    fontWeight={"bold"}
-                    bg={"#D7D7D7"}
-                    placeholder=" Mobile Number"
-                    size={"md"}
-                    _placeholder={{ color: "white", fontWeight: "bold" }}
-                    variant="filled"
-                    {...register("mobilenumber", {
-                      required: "Mobile number is required",
-                      pattern: {
-                        value: /^(?:\+?\d{1,3}[- ]?)?(?:\d{10})$/,
-                        message: "Mobile number format is incorrect",
-                      },
-                      maxLength: {
-                        value: 10,
-                        message: "Mobile numbers must be 10 digits",
-                      },
-                    })}
-                  />
-                  <FormErrorMessage>
-                    {errors.mobilenumber && errors.mobilenumber.message}
-                  </FormErrorMessage>
-                </FormControl>
+                <MobileNumberInput />
               </Box>
             </HStack>
             <Text fontSize="2xl" fontWeight="bold" mt={2}>
